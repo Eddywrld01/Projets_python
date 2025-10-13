@@ -1,0 +1,21 @@
+
+
+Réflexion
+
+Étape			Question à se poser
+
+1. Entrées		Qu’est-ce que l’utilisateur peut saisir ?
+2. Données		Qu’est-ce que je dois stocker ?
+3. Actions		Quelles opérations sur ces données ?
+4. Erreurs possibles	Qu’est-ce qui peut mal se passer ?
+5. Sorties		Qu’est-ce que j’affiche à l’utilisateur ?
+6. Fin de vie		Comment/quand mon script s’arrête ?
+
+
+Réponse 
+
+1. Un choix parmi les chiffres de 1 à 5
+2. Un message d'accueil qu'on pourra utiliser plusieurs fois, le choix de l'utilisateur, la liste de stockage des éléments de la liste, la liste des choix.
+4. Un choix autre que les chiffres proposés, retirer un élément qui n'existe pas
+5. Des messages claires et visuels
+6. Lorsque l'utilisateur entre le chiffre 5
