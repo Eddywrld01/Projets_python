@@ -1,0 +1,9 @@
+[
+    {
+        "type": "Etudiant",
+        "nom": "X",
+        "prenom": "Y",
+        "age": "20",
+        "id": "XXXXXX"
+    }
+]
