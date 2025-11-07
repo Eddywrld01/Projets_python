@@ -10,7 +10,8 @@
     - une méthode `ajouter_livre(livre)`
     - une méthode `afficher_livres_disponibles()`
     - une méthode `rechercher(titre)` qui renvoie le livre s’il existe."""
-
+import json
+import os
 class Livre:
     def __init__(self,titre,auteur,annee_publication):
         self.titre = titre
@@ -29,9 +30,17 @@ class Livre:
         self.disponible = True
         print(f"'{self.titre}' a été retouné")   
 
+    def to_dict(self):
+        return {
+            "titre": self.titre,
+            "auteur" : self.auteur,
+            "année" : self.annee_publication
+        }    
+
 class bibliotheque:
-    def __init__(self):
-        self.liste_livres = []           
+    def __init__(self,fichier = "livres.json"):
+        self.liste_livres = []    
+        self.fichier = fichier       
 
     def ajouter_livre(self,Livre):
         self.liste_livres.append(Livre)   
@@ -53,6 +62,20 @@ class bibliotheque:
             else:
                 print("Livre introuvable")    
 
+    def sauvegarder(self):
+        anciens = []
+        if os.path.exists(self.fichier):
+            with open(self.fichier,"r") as f:
+                try:
+                    anciens = json.load(f)
+                except json.JSONDecodeError:
+                    anciens = []
+
+        data= anciens+[c.to_dict() for c in self.liste_livres]    
+
+        with open(self.fichier,"w") as f:
+            json.dump(data,f, indent = 4)
+
 
 def menu():
     biblio = bibliotheque()
@@ -62,7 +85,8 @@ def menu():
         print("2- Retirer un livre")
         print("3- Afficher les livres disponibles : ")
         print("4- Rechercher un livre : ")
-        print("5- Quitter")
+        print("5- Sauvegarder : ")
+        print("6- Quitter")
         choix = input("Faites un choix : ")
         print("-"*50)
         
@@ -85,7 +109,9 @@ def menu():
         elif choix == "4":
             biblio.rechercher()
         elif choix == "5":
-            break
+            biblio.sauvegarder()
+        elif choix == "6":
+            break    
         print("-"*50)    
         print("-"*50)    
                  

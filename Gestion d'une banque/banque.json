@@ -1,21 +1,8 @@
 [
     {
         "type de compte": "bancaire",
-        "numero du compte": "0001",
-        "nom du titulaire": "Barou",
-        "solde": 700000.0
-    },
-    {
-        "type de compte": "\u00e9pargne",
-        "numero du compte": "0003",
-        "nom du titulaire": "Edmond",
-        "solde": 300000.0,
-        "taux d'interets": 0.05
-    },
-    {
-        "type de compte": "bancaire",
-        "numero du compte": "0002",
-        "nom du titulaire": "Nintch",
-        "solde": 400000.0
+        "numero du compte": "1",
+        "nom du titulaire": "EZ",
+        "solde": 4567.0
     }
 ]
